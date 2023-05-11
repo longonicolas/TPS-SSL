@@ -9,7 +9,6 @@ int stringToInt (char* cadena,int largoDeCadena) {
         int aux = (cadena[i] - 48) * multiplicador;
         multiplicador*=10;
         numero += aux;
-        printf ("%d\n",aux);
     }
     return numero;
 } 
