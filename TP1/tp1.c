@@ -30,7 +30,36 @@ int stringToInt (char* cadena,int largoDeCadena) {
     return numero;
 } 
 
+
+
+//Punto D) Eliminar de una cadena dada todas las ocurrencias de un carácter dado.
 int main () {
     int numero = stringToInt ("12345",4);
     return 0;
 }
+void eliminarCaracter(char* cadena, char caracter) {
+    int i, j;
+    for (i = 0, j = 0; cadena[i] != '\0'; i++) {
+        if (cadena[i] != caracter) {
+            cadena[j] = cadena[i];
+            j++;
+        }
+    }
+    cadena[j] = '\0'; //Asigno el carácter nulo en la posición de J.
+}
+int main(){
+    char cadena[50];
+    char caracter;
+    printf("Ingrese una cadena: ");
+    scanf("%99s",cadena);
+    printf("Ingrese el caracter que desea eliminar: ");
+    scanf("%c",&caracter);
+    printf("La cadena principal es: %s\n", cadena);
+    eliminarCaracter(cadena, caracter);
+    printf("La cadena resultante: %s\n", cadena);
+    return 0;
+}
+
+
+
+
