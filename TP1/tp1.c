@@ -30,13 +30,13 @@ int stringToInt (char* cadena,int largoDeCadena) {
     return numero;
 } 
 
-
-
-//Punto D) Eliminar de una cadena dada todas las ocurrencias de un carácter dado.
 int main () {
     int numero = stringToInt ("12345",4);
     return 0;
 }
+
+
+//Punto D) Eliminar de una cadena dada todas las ocurrencias de un carácter dado.
 void eliminarCaracter(char* cadena, char caracter) {
     int i, j;
     for (i = 0, j = 0; cadena[i] != '\0'; i++) {
