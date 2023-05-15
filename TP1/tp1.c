@@ -51,7 +51,7 @@ int main(){
     char cadena[50];
     char caracter;
     printf("Ingrese una cadena: ");
-    scanf("%99s",cadena);
+    scanf("%49s",cadena);
     printf("Ingrese el caracter que desea eliminar: ");
     scanf("%c",&caracter);
     printf("La cadena principal es: %s\n", cadena);
