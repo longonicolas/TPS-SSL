@@ -45,7 +45,7 @@ void eliminarCaracter(char* cadena, char caracter) {
             j++;
         }
     }
-    cadena[j] = '\0'; //Asigno el carácter nulo en la posición de J.
+    cadena[j] = '\0';
 }
 int main(){
     char cadena[50];
