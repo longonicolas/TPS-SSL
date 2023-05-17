@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 // Punto A) Calcular y retornar la longitud de una cadena dada.
 
@@ -37,6 +38,35 @@ int main () {
     return 0;
 }
 
+//Punto C) Convertir una cadena de caracteres a la misma cadena con todos sus caracteres en mayúscula.
+
+void cadenaEnMayuscula(char cadena[], int largoDeCadena){
+	
+	int i;
+	//char cadenaMayuscula[largoDeCadena];
+	
+	for(i=0; i<largoDeCadena; i++){
+		cadena[i] = toupper(cadena[i]);
+	}
+	
+}
+
+int main(){
+    
+    int i, tamanio;
+    char cadena[50+1];
+    
+    printf("Ingresar cadena de caracteres\n");
+    scanf("%s",cadena);
+    
+    tamanio = sizeof(cadena);
+    
+    cadenaEnMayuscula(cadena,tamanio);
+    
+   printf(cadena);
+
+    return 0;
+}
 
 //Punto D) Eliminar de una cadena dada todas las ocurrencias de un carÃ¡cter dado.
 void eliminarCaracter(char* cadena, char caracter) {
