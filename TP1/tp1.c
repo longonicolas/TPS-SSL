@@ -1,6 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
 
 // Punto A) Calcular y retornar la longitud de una cadena dada.
-#include <stdio.h>
+
 int main (void){
     int longitud (char c[]);
     char texto[255];
@@ -61,5 +63,31 @@ int main(){
 }
 
 
+//Punto E) Concatenar al final de la primera cadena dada una segunda cadena también dada.
 
+void concatenarCadenas (char primerCadena[], char segundaCadena[]){
 
+    int i, j;
+    for (i = 0; primerCadena [i] != 0; i++);
+
+    for (j = 0; segundaCadena [j] != 0; j++){
+        primerCadena [i] = segundaCadena [j];
+        i++;
+    }
+    primerCadena[i] = '\0';
+}
+int main() {
+
+    char primerCadena[100];
+    char segundaCadena[100];
+
+    printf ("Ingresar primer cadena: ");
+    scanf ("%s", primerCadena);
+    printf ("Ingrese segunda cadena: ");
+    scanf ("%s", segundaCadena);
+    concatenarCadenas (primerCadena, segundaCadena);
+    printf ("Cadenas concatenadas: %s\n", primerCadena);
+    
+    system ("pause");
+    return 0;
+}
