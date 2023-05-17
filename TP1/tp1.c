@@ -20,11 +20,12 @@ int longitud (char c[]){
     return i;
 }
 
-// Punto B) Convertir una cadena de dígitos en su equivalente numérico.
+// Punto B) Convertir una cadena de dÃ­gitos en su equivalente numÃ©rico.
 int stringToInt (char* cadena,int largoDeCadena) {
     int numero=0;
     int multiplicador = 1;
-    for (int i=largoDeCadena; i>=0 ;i--)
+    int i;
+    for (i=largoDeCadena; i>=0 ;i--)
     {
         int aux = (cadena[i] - 48) * multiplicador;
         multiplicador*=10;
@@ -38,7 +39,7 @@ int main () {
     return 0;
 }
 
-//Punto C) Convertir una cadena de caracteres a la misma cadena con todos sus caracteres en may�scula.
+//Punto C) Convertir una cadena de caracteres a la misma cadena con todos sus caracteres en mayúscula.
 
 void cadenaEnMayuscula(char cadena[], int largoDeCadena){
 	
@@ -68,7 +69,7 @@ int main(){
     return 0;
 }
 
-//Punto D) Eliminar de una cadena dada todas las ocurrencias de un carácter dado.
+//Punto D) Eliminar de una cadena dada todas las ocurrencias de un carÃ¡cter dado.
 void eliminarCaracter(char* cadena, char caracter) {
     int i, j;
     for (i = 0, j = 0; cadena[i] != '\0'; i++) {
@@ -93,7 +94,7 @@ int main(){
 }
 
 
-//Punto E) Concatenar al final de la primera cadena dada una segunda cadena también dada.
+//Punto E) Concatenar al final de la primera cadena dada una segunda cadena tambiÃ©n dada.
 
 void concatenarCadenas (char primerCadena[], char segundaCadena[]){
 
