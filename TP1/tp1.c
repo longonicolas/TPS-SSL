@@ -122,3 +122,30 @@ int main() {
     system ("pause");
     return 0;
 }
+
+//Punto F) Modificar la cadena dada con la inserción de un carácter dado en una posición determinada.
+
+int main(){
+    char *cadena;
+    int posicion;
+    char caracter;
+    
+    printf("Ingrese cadena:\n");
+    scanf("%s",&cadena);
+    int longitud = strlen(&cadena);
+
+    printf("Ingrese posicion de cadena la cual quiere reemplazar\n");
+    scanf("%d",&posicion);
+    while (posicion > (longitud-1)){
+        printf("Ingrese nuevamente posicion de cadena la cual quiere reemplazar\n");
+        scanf("%d",&posicion);
+        }
+    
+    printf("Ingrese caracter el cual va a ser insertado\n");
+    scanf("%c",&caracter);
+
+    cadena[posicion] = caracter;
+    printf("La nueva cadena con el caracter insertado es: %s",&cadena);
+
+    return 0;
+}
