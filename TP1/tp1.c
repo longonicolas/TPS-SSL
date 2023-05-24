@@ -26,13 +26,14 @@ int stringToInt (char* cadena,int largoDeCadena) {
 
 //Punto C) Convertir una cadena de caracteres a la misma cadena con todos sus caracteres en mayúscula.
 
-void cadenaEnMayuscula(char cadena[], int largoDeCadena){
+void cadenaEnMayuscula(char cadena[]){
 	
-	int i;
+	int i = 0;
 	//char cadenaMayuscula[largoDeCadena];
 	
-	for(i=0; i<largoDeCadena; i++){
+	while(cadena[i] != '\0'){
 		cadena[i] = toupper(cadena[i]);
+		i++;
 	}
 	
 }
@@ -118,7 +119,7 @@ int main (){
     
                 printf("Ingresar cadena de caracteres\n");
                 scanf("%s",cadena);
-                cadenaEnMayuscula(cadena,longitud(cadena));
+                cadenaEnMayuscula(cadena);
                 printf("Cadena en mayusculas: %s",cadena);
                 break;
             }
