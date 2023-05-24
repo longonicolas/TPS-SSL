@@ -3,19 +3,9 @@
 #include <ctype.h>
 
 // Punto A) Calcular y retornar la longitud de una cadena dada.
-
-int main (void){
-    int longitud (char c[]);
-    char texto[255];
-    printf("Introduzca la cadena:\n"); 
-    scanf("%s",texto);
-    printf("La longitud de la cadena es de: %d \n", longitud(texto));
-    return 0;
-}
-
-int longitud (char c[]){
-    int i,j;
-    while (c[i]!='\0')
+int longitud (char* cadena){
+    int i=0;
+    while (cadena[i]!='\0')
         i++;  
     return i;
 }
@@ -34,11 +24,6 @@ int stringToInt (char* cadena,int largoDeCadena) {
     return numero;
 } 
 
-int main () {
-    int numero = stringToInt ("12345",4);
-    return 0;
-}
-
 //Punto C) Convertir una cadena de caracteres a la misma cadena con todos sus caracteres en mayúscula.
 
 void cadenaEnMayuscula(char cadena[], int largoDeCadena){
@@ -52,23 +37,6 @@ void cadenaEnMayuscula(char cadena[], int largoDeCadena){
 	
 }
 
-int main(){
-    
-    int i, tamanio;
-    char cadena[50+1];
-    
-    printf("Ingresar cadena de caracteres\n");
-    scanf("%s",cadena);
-    
-    tamanio = sizeof(cadena);
-    
-    cadenaEnMayuscula(cadena,tamanio);
-    
-   printf(cadena);
-
-    return 0;
-}
-
 //Punto D) Eliminar de una cadena dada todas las ocurrencias de un carÃ¡cter dado.
 void eliminarCaracter(char* cadena, char caracter) {
     int i, j;
@@ -79,18 +47,6 @@ void eliminarCaracter(char* cadena, char caracter) {
         }
     }
     cadena[j] = '\0';
-}
-int main(){
-    char cadena[50];
-    char caracter;
-    printf("Ingrese una cadena: ");
-    scanf("%49s",cadena);
-    printf("Ingrese el caracter que desea eliminar: ");
-    scanf("%c",&caracter);
-    printf("La cadena principal es: %s\n", cadena);
-    eliminarCaracter(cadena, caracter);
-    printf("La cadena resultante: %s\n", cadena);
-    return 0;
 }
 
 
@@ -107,36 +63,18 @@ void concatenarCadenas (char primerCadena[], char segundaCadena[]){
     }
     primerCadena[i] = '\0';
 }
-int main() {
-
-    char primerCadena[100];
-    char segundaCadena[100];
-
-    printf ("Ingresar primer cadena: ");
-    scanf ("%s", primerCadena);
-    printf ("Ingrese segunda cadena: ");
-    scanf ("%s", segundaCadena);
-    concatenarCadenas (primerCadena, segundaCadena);
-    printf ("Cadenas concatenadas: %s\n", primerCadena);
-    
-    system ("pause");
-    return 0;
-}
 
 //Punto F) Modificar la cadena dada con la inserción de un carácter dado en una posición determinada.
 
-int main(){
-    char *cadena;
+void insertarCaracter (char* cadena)
+{
     int posicion;
     char caracter;
-    
-    printf("Ingrese cadena:\n");
-    scanf("%s",&cadena);
-    int longitud = strlen(&cadena);
+    int tamanio = longitud(cadena);
 
     printf("Ingrese posicion de cadena la cual quiere reemplazar\n");
     scanf("%d",&posicion);
-    while (posicion > (longitud-1)){
+    while (posicion > (tamanio-1)){
         printf("Ingrese nuevamente posicion de cadena la cual quiere reemplazar\n");
         scanf("%d",&posicion);
         }
@@ -145,7 +83,83 @@ int main(){
     scanf("%c",&caracter);
 
     cadena[posicion] = caracter;
-    printf("La nueva cadena con el caracter insertado es: %s",&cadena);
+    printf("La nueva cadena con el caracter insertado es: %s",cadena);
+}
 
+int main (){
+    int menu;
+    char cadena[50];
+    char caracter;
+    printf ("Ingrese una opcion.\n\n");
+    printf ("Menu\n1: Calcular longitud de cadena.\n2: Convertir cadena de numeros a numeros.\n3: Convertir la cadena a mayuscula.\n");
+    printf ("4: Eliminar todas las ocurrencias de un caracter de la cadena.\n5: Concatenar dos cadenas.\n6: Insertar un caracter en la cadena en la posicion dada.\n0: Salir\n\n");
+    scanf("%d",&menu);
+
+    while (menu != 0)
+    {
+        switch (menu)
+        {
+            case 1:
+            {
+                printf("Introduzca la cadena:\n"); 
+                scanf("%s",cadena);
+                printf("La longitud de la cadena es de: %d \n", longitud(cadena));
+                break;
+            }
+            case 2:
+            {
+                printf("Introduzca la cadena:\n");
+                scanf("%s",cadena);
+                printf("La cadena ahora es el numero: %d \n", stringToInt(cadena,longitud(cadena)-1));
+                break;
+            }
+            case 3:
+            {
+    
+                printf("Ingresar cadena de caracteres\n");
+                scanf("%s",cadena);
+                cadenaEnMayuscula(cadena,longitud(cadena));
+                printf("Cadena en mayusculas: %s",cadena);
+                break;
+            }
+            case 4:
+            {
+                printf("Ingrese una cadena: ");
+                scanf("%s",cadena);
+                printf("Ingrese el caracter que desea eliminar: ");
+                scanf(" %c",&caracter);
+                printf("La cadena principal es: %s\n", cadena);
+                eliminarCaracter(cadena, caracter);
+                printf("La cadena resultante: %s\n", cadena);
+                break;
+            }
+            case 5:
+            {
+                
+                char primerCadena[100];
+                char segundaCadena[100];
+                printf ("Ingresar primer cadena: ");
+                scanf ("%s", primerCadena);
+                printf ("Ingrese segunda cadena: ");
+                scanf ("%s", segundaCadena);
+                concatenarCadenas (primerCadena, segundaCadena);
+                printf ("Cadenas concatenadas: %s\n", primerCadena);
+                system ("pause");
+                break;
+            }
+            case 6:
+            {
+                printf("Ingrese cadena:\n");
+                scanf("%s",cadena);
+                insertarCaracter (cadena);
+                break;
+            }
+        }
+
+        printf ("\nVuelva a ingresar una opcion.\n\n");
+        printf ("Menu\n1: Calcular longitud de cadena.\n2: Convertir cadena de numeros a numeros.\n3: Convertir la cadena a mayuscula.\n");
+        printf ("4: Eliminar todas las ocurrencias de un caracter de la cadena.\n5: Concatenar dos cadenas.\n6: Insertar un caracter en la cadena en la posicion dada.\n0: Salir\n\n");
+        scanf("%d",&menu);
+    }
     return 0;
 }
