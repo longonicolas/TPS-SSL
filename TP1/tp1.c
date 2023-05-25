@@ -71,7 +71,7 @@ void insertarCaracter(char cadena[],char caracter, int posicion){
     
     
     int i,j;
-    int tamanio = strlen(cadena);
+    int tamanio = longitud (cadena);
     char cadenaNueva[tamanio+1];
     char aux;
 
@@ -157,9 +157,14 @@ int main (){
             }
             case 6:
             {
+                int posicion;
                 printf("Ingrese cadena:\n");
                 scanf("%s",cadena);
-                insertarCaracter (cadena);
+                printf("Ingrese caracter a incluir:\n");
+                scanf(" %c",&caracter);
+                printf("Ingrese la posicion a incluir el carater:\n");
+                scanf("%d",&posicion);
+                insertarCaracter (cadena,caracter,posicion);
                 break;
             }
         }
